@@ -205,3 +205,14 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 --     vim.opt.hlsearch = vim.tbl_contains({ '<CR>', 'n', 'N', '*', '#', '?', '/' }, vim.fn.keytrans(char))
 --   end
 -- end, auto_hlsearch_namespace)
+
+local function copy_to_xclip()
+  vim.cmd [[
+    :silent !xclip -selection clipboard < <(echo -n @+)
+  ]]
+  vim.notify("Copied to clipboard", "info") -- Optional notification
+end
+
+-- Map the key sequence
+vim.keymap.set("n", "<Leader>y", copy_to_xclip, { desc = "Copy to xclip" })  -- <Leader> is usually space
+

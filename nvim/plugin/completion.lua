@@ -97,7 +97,7 @@ cmp.setup {
         cmp.complete()
       end
     end, { 'i', 'c', 's' }),
-    ['<C-y>'] = cmp.mapping.confirm {
+    ['<BR>'] = cmp.mapping.confirm {
       select = true,
     },
   },
